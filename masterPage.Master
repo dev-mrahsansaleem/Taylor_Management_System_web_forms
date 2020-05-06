@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterPage.master.cs" Inherits="TMS_WEB.masterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/popper-utils.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <link href="Custom/CSS/customStyles.css" rel="stylesheet" />
+    <script src="Custom/JS/jquery.appear.min.js"></script>
+    <script src="Custom/JS/jquery.easypiechart.min.js"></script>
+    <script src="Custom/JS/customJS.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <center>
+                <div style="background-color:antiquewhite">
+                    <asp:Label ID="lblUsername" runat="server" Text=""></asp:Label>&nbsp&nbsp&nbsp < _ > &nbsp&nbsp
+                    <asp:LinkButton ID="Home" runat="server" OnClick="Home_Click">Home</asp:LinkButton>&nbsp&nbsp -> &nbsp&nbsp
+                    <asp:LinkButton ID="Customer" runat="server" OnClick="Customer_Click">Customer</asp:LinkButton>&nbsp&nbsp -> &nbsp&nbsp
+                    <asp:LinkButton ID="Worker" runat="server" OnClick="Worker_Click">Worker</asp:LinkButton>&nbsp&nbsp -> &nbsp&nbsp
+                    <asp:LinkButton ID="User" runat="server" OnClick="User_Click">User</asp:LinkButton>&nbsp&nbsp -> &nbsp&nbsp
+                    <asp:LinkButton ID="AssignWork" runat="server" OnClick="AssignWork_Click">AssignWork</asp:LinkButton>&nbsp&nbsp -> &nbsp&nbsp
+                    <asp:LinkButton ID="Logout" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </center>
+        </div>
+    </form>
+</body>
+</html>
