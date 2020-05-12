@@ -13,25 +13,20 @@ namespace TMS_WEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            GridView1.DataSource = new cWorkerDAL().getWorkers();
-            GridView1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            cWorker w = new cWorker();
-            w.wAddress = txtAddress.Text;
-            w.wCNIC = txtCNIC.Text;
-            w.wdateOfJoin = Calendar1.SelectedDate;
-            w.wEmergencyContact = txtMobileNo.Text;
-            w.wFullName = txtfullName.Text;
-            w.wIsActive = active.Checked;
-            w.wMobileNo = txtMobileNo.Text;
-            new cWorkerDAL().InsertWorker(w);
 
-            GridView1.DataSource = new cWorkerDAL().getWorkers();
-            GridView1.DataBind();
+        protected void Li3_Click(object sender, EventArgs e)
+        {
+
+            SqlDataSource1.InsertParameters["wFullName"].DefaultValue = (GridView1.FooterRow.FindControl("txtfullName") as TextBox).Text;
+            SqlDataSource1.InsertParameters["wCNIC"].DefaultValue = (GridView1.FooterRow.FindControl("txtCNIC") as TextBox).Text;
+            SqlDataSource1.InsertParameters["wAddress"].DefaultValue = (GridView1.FooterRow.FindControl("txtAddress") as TextBox).Text;
+            SqlDataSource1.InsertParameters["wMobileNo"].DefaultValue = (GridView1.FooterRow.FindControl("txtMobileNo") as TextBox).Text;
+            SqlDataSource1.InsertParameters["wEmergencyContact"].DefaultValue = (GridView1.FooterRow.FindControl("txtEMobileNo") as TextBox).Text;
+            SqlDataSource1.InsertParameters["wdateOfJoin"].DefaultValue = (GridView1.FooterRow.FindControl("Calendar1") as Calendar).SelectedDate.ToString();
+            SqlDataSource1.InsertParameters["uIsActive"].DefaultValue = (GridView1.FooterRow.FindControl("isActive") as CheckBox).Checked.ToString();
+            SqlDataSource1.Insert();
         }
     }
 }

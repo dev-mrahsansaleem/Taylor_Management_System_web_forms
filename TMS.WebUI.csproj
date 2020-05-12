@@ -188,7 +188,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="update_user.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
     <Content Include="Worker.aspx" />
@@ -247,13 +246,6 @@
     <Compile Include="TMS.DAL\cMeaurementsDAL.cs" />
     <Compile Include="TMS.DAL\cUserDAL.cs" />
     <Compile Include="TMS.DAL\cWorkerDAL.cs" />
-    <Compile Include="update_user.aspx.cs">
-      <DependentUpon>update_user.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="update_user.aspx.designer.cs">
-      <DependentUpon>update_user.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

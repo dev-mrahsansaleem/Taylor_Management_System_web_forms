@@ -16,61 +16,18 @@ namespace TMS_WEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-                DataTable dtbl = new cUserDAL().getUsers(true);
-                if (dtbl.Rows.Count > 0)
-                {
-                    GridView1.DataSource = dtbl;
-                    GridView1.DataBind();
-                }
-                else
-                {
-                    dtbl.Rows.Add(dtbl.NewRow());
-                    GridView1.DataSource = dtbl;
-                    GridView1.DataBind();
-                    GridView1.Rows[0].Cells.Clear();
-                    GridView1.Rows[0].Cells.Add(new TableCell());
-                    GridView1.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
-                    GridView1.Rows[0].Cells[0].Text = "No Data Found ..!";
-                    GridView1.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
-                }
-            }
+            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void LButton1_Click(object sender, EventArgs e)
         {
-            cUsers u = new cUsers();
-            u.uFullName = txtfullName.Text;
-            u.uUserName = txtusername.Text;
-            u.uPassword = txtPassword.Text;
-            u.uType = userTypeDropDownList.Text;
-            u.uIsActive = CheckBox1.Checked;
-            new cUserDAL().InsertUser(u);
-            GridView1.DataSource = new cUserDAL().getUsers();
-            GridView1.DataBind();
-        }
+            SqlDataSource1.InsertParameters["uFullName"].DefaultValue = (GridView1.FooterRow.FindControl("TextBox4") as TextBox).Text;
+            SqlDataSource1.InsertParameters["uUserName"].DefaultValue = (GridView1.FooterRow.FindControl("TextBox5") as TextBox).Text;
+            SqlDataSource1.InsertParameters["uPassword"].DefaultValue = (GridView1.FooterRow.FindControl("TextBox6") as TextBox).Text;
+            SqlDataSource1.InsertParameters["uType"].DefaultValue = (GridView1.FooterRow.FindControl("userTypeList1") as DropDownList).SelectedValue;
+            SqlDataSource1.InsertParameters["uIsActive"].DefaultValue = (GridView1.FooterRow.FindControl("Chbox1") as CheckBox).Checked.ToString();
 
-
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("insert"))
-            {
-                cUsers u = new cUsers();
-                u.uFullName = ((GridView1.FooterRow.FindControl("TxtuFullNameFooter")) as TextBox).Text;
-                u.uUserName = ((GridView1.FooterRow.FindControl("TxtuUserNameFooter")) as TextBox).Text;
-                u.uPassword = ((GridView1.FooterRow.FindControl("TxtuPasswordFooter")) as TextBox).Text;
-                u.uType = ((GridView1.FooterRow.FindControl("dropuTypeFooter")) as DropDownList).SelectedValue;
-                u.uIsActive = ((GridView1.FooterRow.FindControl("TxtuIsActiveFooter")) as CheckBox).Checked;
-                new cUserDAL().InsertUser(u);
-
-            }
-            GridView1.DataSource = new cUserDAL().getUsers();
-            GridView1.DataBind();
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
+            SqlDataSource1.Insert();
         }
     }
 }

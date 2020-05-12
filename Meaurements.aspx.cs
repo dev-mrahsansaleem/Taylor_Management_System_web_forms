@@ -12,7 +12,7 @@ namespace TMS_WEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string[] filePaths = Directory.GetFiles(@"~");
+            //string[] filePaths = Directory.GetFiles(@"~");
         }
 
         protected void UploadButton_Click(object sender, EventArgs e)

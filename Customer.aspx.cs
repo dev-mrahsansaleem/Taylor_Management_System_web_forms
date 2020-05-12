@@ -13,26 +13,23 @@ namespace TMS_WEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataSource = new cCustomerDAL().getCustomers();
-            GridView1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            cCustomer c = new cCustomer();
-            c.cAddress = txtAddress.Text;
-            c.cCNIC = txtCNIC.Text;
-            c.cFullName = txtfullName.Text;
-            c.cMobileNo = txtMobileNo.Text;
-            c.cRemarks = txtRemarks.Text;
-            new cCustomerDAL().InsertCustomer(c);
-            GridView1.DataSource = new cCustomerDAL().getCustomers();
-            GridView1.DataBind();
-        }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             Response.Redirect("Meaurements.aspx");
+        }
+
+        protected void LinkB1_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.InsertParameters["cFullName"].DefaultValue = (GridView1.FooterRow.FindControl("txtfullName") as TextBox).Text;
+            SqlDataSource1.InsertParameters["cCNIC"].DefaultValue = (GridView1.FooterRow.FindControl("txtCNIC") as TextBox).Text;
+            SqlDataSource1.InsertParameters["cAddress"].DefaultValue = (GridView1.FooterRow.FindControl("txtAddress") as TextBox).Text;
+            SqlDataSource1.InsertParameters["cMobileNo"].DefaultValue = (GridView1.FooterRow.FindControl("txtMobileNo") as TextBox).Text;
+            SqlDataSource1.InsertParameters["cRemarks"].DefaultValue = (GridView1.FooterRow.FindControl("txtRemarks") as TextBox).Text;
+            SqlDataSource1.Insert();
+
         }
     }
 }
