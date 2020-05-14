@@ -24,30 +24,48 @@ namespace TMS_WEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl users;
 
         /// <summary>
-        /// Div1 control.
+        /// pending_task control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pending_task;
 
         /// <summary>
-        /// Div2 control.
+        /// customers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl customers;
 
         /// <summary>
-        /// Div3 control.
+        /// completed_task control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl completed_task;
+
+        /// <summary>
+        /// Workers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Workers;
+
+        /// <summary>
+        /// rejected_task control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rejected_task;
     }
 }

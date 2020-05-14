@@ -52,21 +52,27 @@
         </div>
         
     </div>--%>
-        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" DataKeyNames="cId" DataSourceID="SqlDataSource1" ShowFooter="True">
+
+
+
+        <asp:GridView 
+            OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+            
+
+            ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" DataKeyNames="cId" DataSourceID="SqlDataSource1" ShowFooter="True">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
-                <asp:TemplateField ShowHeader="False">
+                <asp:TemplateField HeaderText="Actions">
                     <EditItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1"  runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
                         &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
                         &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete"></asp:LinkButton>
-                        &nbsp;<asp:LinkButton OnClick="Button3_Click" ID="lbMeausurements" runat="server" CausesValidation="False"  Text="ADD Meaurements"></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" CommandName="Select" Text="Add Measurements"></asp:LinkButton>
+
                     </ItemTemplate>
-
-
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="cId" InsertVisible="False" SortExpression="cId">
                     <EditItemTemplate>
@@ -177,5 +183,45 @@
             <asp:Parameter Name="cId" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    <asp:Label ID="Label7" runat="server" Text="Select type"></asp:Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:DropDownList  AutoPostBack="true"  ID="filesdrop" runat="server" OnSelectedIndexChanged="files_SelectedIndexChanged" OnSelectedTextChanged="files_SelectedIndexChanged"></asp:DropDownList>
+    <br />
+    <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+        <AlternatingRowStyle BackColor="#CCCCCC" />
+        <FooterStyle BackColor="#CCCCCC" />
+        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#808080" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#383838" />
 
+
+        <Columns>
+            <asp:TemplateField HeaderText="Name">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="namelbl" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="150px" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Value">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Value") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:TextBox ID="valuetxt" runat="server" Text='<%# Bind("Value") %>'></asp:TextBox>
+                </ItemTemplate>
+                <ItemStyle Width="150px" />
+            </asp:TemplateField>
+        </Columns>
+
+    </asp:GridView>
+    <asp:TextBox ID="id" runat="server"></asp:TextBox>
+    <asp:TextBox ReadOnly="true" ID="type" runat="server"></asp:TextBox>
+    <asp:Button OnClick="Button1_Click" ID="Button1" runat="server" Text="Add measurments" />
 </asp:Content>

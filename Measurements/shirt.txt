@@ -1,0 +1,7 @@
+shirt
+length
+height
+shoulders
+length
+height
+shoulders

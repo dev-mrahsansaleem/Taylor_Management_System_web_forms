@@ -27,13 +27,31 @@ namespace TMS.DAL
             return result;
         }
 
-        public int getAssignedTaskToWorker(int wId, string v)
+        public int getAssignedTaskToWorker(string v)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ConnectionString);
             if (con.State.ToString() == "open")
                 con.Close();
             con.Open();
-            string query = "select COUNT(*) from AssignedWork where wId='" + wId + "' and astatus='"+v+"'";
+            string query = "select COUNT(*) from AssignedWork where astatus='" + v + "'";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            Int32 count = (Int32)cmd.ExecuteScalar();
+
+            /*SqlCommand cmd = new SqlCommand(query, con);
+            var result = cmd.ExecuteNonQuery();*/
+            con.Close();
+            cmd.Dispose();
+            con.Dispose();
+            return count;
+        }
+        public int getAllAssigned()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ConnectionString);
+            if (con.State.ToString() == "open")
+                con.Close();
+            con.Open();
+            string query = "select COUNT(*) from AssignedWork";
 
             SqlCommand cmd = new SqlCommand(query, con);
             Int32 count = (Int32)cmd.ExecuteScalar();

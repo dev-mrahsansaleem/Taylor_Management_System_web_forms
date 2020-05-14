@@ -12,7 +12,7 @@
 			        <div class="b-skills" >
 				        <div class="skill-item center-block">
 					        <div class="chart-container">
-						        <div class="chart" id="users" runat="server" data-percent="55" data-bar-color="#23afe3">
+						        <div class="chart" id="users" runat="server" data-percent="55" data-bar-color="#fc03db">
 							        <span class="percent"></span>
 						        </div>
 					        </div>
@@ -28,16 +28,22 @@
 			        <div class="b-skills" >
 				        <div class="skill-item center-block">
 					        <div class="chart-container">
-						        <div class="chart" id="Div1" runat="server" data-percent="20" data-bar-color="#a7d212">
+						        <div class="chart" id="pending_task" runat="server" data-percent="5" data-bar-color="#c2ed14">
 							        <span class="percent" ></span>
 						        </div>
 					        </div>
-					        <p>Numver of customer</p>
+					        <p>Numver of pending task</p>
 				        </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
+
+
+
         <div class="m-1" style=" display:flex; flex:0.5; flex-direction:column">
             <!-- 2nd col -->
             <div   class="m-1 p-1" style=" display:flex;flex:0.5"; >
@@ -47,11 +53,11 @@
 			        <div class="b-skills" >
 				        <div class="skill-item center-block">
 					        <div class="chart-container">
-						        <div class="chart" id="Div2" runat="server" data-percent="15" data-bar-color="#ff4241">
+						        <div class="chart" id="customers" runat="server" data-percent="15" data-bar-color="#ff4241">
 							        <span class="percent" ></span>
 						        </div>
 					        </div>
-					        <p>Numver of customer</p>
+					        <p>Numver of customers</p>
 				        </div>
                     </div>
                 </div>
@@ -63,16 +69,57 @@
 			        <div class="b-skills" >
 				        <div class="skill-item center-block">
 					        <div class="chart-container">
-						        <div class="chart" id="Div3" runat="server" data-percent="5" data-bar-color="#edc214">
+						        <div class="chart" id="completed_task" runat="server" data-percent="5" data-bar-color="#edc214">
 							        <span class="percent" ></span>
 						        </div>
 					        </div>
-					        <p>Numver of customer</p>
+					        <p>Numver of completed task</p>
+				        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+
+
+		
+        <div class="m-1" style=" display:flex; flex:0.5; flex-direction:column">
+
+			
+            <div  class="m-1 p-1" style=" display:flex;flex:0.5"; >
+                <!-- 2nd row -->
+                <div class="circle" style=" display:flex;flex:1; justify-content:center;align-items:center">
+                    <!-- inner data or counters -->
+			        <div class="b-skills" >
+				        <div class="skill-item center-block">
+					        <div class="chart-container">
+						        <div class="chart" id="Workers" runat="server" data-percent="20" data-bar-color="#0303fc">
+							        <span class="percent" ></span>
+						        </div>
+					        </div>
+					        <p>Number of Workers</p>
+				        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div  class="m-1 p-1" style=" display:flex;flex:0.5"; >
+                <!-- 2nd row -->
+                <div class="circle" style=" display:flex;flex:1; justify-content:center;align-items:center">
+                    <!-- inner data or counters -->
+			        <div class="b-skills" >
+				        <div class="skill-item center-block">
+					        <div class="chart-container">
+						        <div class="chart" id="rejected_task" runat="server" data-percent="5" data-bar-color="#14edc2">
+							        <span class="percent" ></span>
+						        </div>
+					        </div>
+					        <p>Numver of rejected task</p>
 				        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+	</div>
 
 </asp:Content>

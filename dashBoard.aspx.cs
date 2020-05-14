@@ -17,6 +17,12 @@ namespace TMS_WEB
             //MyBody.Attributes["data-percent"] = "70";
 
             users.Attributes["data-percent"] = new cUserDAL().getUsers().Count.ToString();
+            Workers.Attributes["data-percent"] = new cWorkerDAL().getWorkers().Count.ToString();
+            customers.Attributes["data-percent"] = new cCustomerDAL().getCustomers().Count.ToString();
+            completed_task.Attributes["data-percent"] = new cAssignedWorkDAL().getAssignedTaskToWorker("complete").ToString();
+            pending_task.Attributes["data-percent"] = new cAssignedWorkDAL().getAssignedTaskToWorker("pending").ToString();
+            rejected_task.Attributes["data-percent"] = new cAssignedWorkDAL().getAssignedTaskToWorker("rejected").ToString();
+
         }
     }
 }

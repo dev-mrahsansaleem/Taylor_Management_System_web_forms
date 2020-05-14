@@ -16,10 +16,9 @@
             <center>
                 <h1>Login Page</h1>
                 <div class="col-3">
-                    <form >
                         <div class="form-group">
                         <label class="float-left" for="usernameDropDownList">Enter User Name: </label>
-                            <asp:DropDownList ID="usernameDropDownList"  runat="server" class="form-control"  placeholder="Enter User Name"></asp:DropDownList>
+                            <asp:DropDownList ID="usernameDropDownList"  runat="server" class="form-control"  placeholder="Enter User Name" DataSourceID="SqlDataSource1" DataTextField="uUserName" DataValueField="uUserName"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                         <label class="float-left" for="txtPassword">Enter Password: </label>
@@ -33,10 +32,10 @@
                         <asp:Label ID="lblmsg" Text="msg lbl" runat="server" ForeColor="Red"></asp:Label>
                         <br />
                         <asp:Button ID="Button1" runat="server" class="m-3 px-4 btn btn-primary" Text="Login" OnClick="BtnLogin_Click"></asp:Button>
-                    </form>
                 </div>
             </center>
         </div>
     </form>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:constr %>" SelectCommand="SELECT [uUserName] FROM [Users]"></asp:SqlDataSource>
 </body>
 </html>

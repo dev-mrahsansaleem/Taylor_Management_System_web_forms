@@ -1,0 +1,5 @@
+pant
+length
+waist
+narrow
+lining
